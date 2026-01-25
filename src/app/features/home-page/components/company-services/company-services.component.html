@@ -1,0 +1,18 @@
+<div class="container">
+    <img src="images/home-pg-curve-2.svg" alt="A background image with soft curves" class="bg-image bg-image-desktop">
+    <img src="images/home-pg-curve-2-mobile.svg" alt="A background image with soft curves" class="bg-image bg-image-mobile">
+    <div class="services-container">
+        <h1>We offer to dive into...</h1>
+        <div class="services">
+            @for (service of servicesData; track $index) {
+                <a routerLink="/services" class="service">
+                    <img class="service-bg-image" [src]="service.bgImage" alt="background image for service description">
+                    <div class="service-info">
+                        <h4 class="name">{{service.name}}</h4>
+                        <p class="description">{{service.description}}</p>
+                    </div>
+                </a>
+            }
+        </div>
+    </div>
+</div>

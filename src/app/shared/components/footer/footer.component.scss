@@ -1,0 +1,70 @@
+@use '../../../../styles/variables' as *;
+
+.container {
+    padding: 25px 5%;
+    background-color: $primary;
+    min-height: $footer-height;
+    color: $black-5;
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+
+    .menu {
+        display: flex;        
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 24px;
+
+        .menu-item, .menu-links {
+            list-style-type: none;                        
+        }
+
+        .menu-item {
+
+            img {
+                vertical-align: middle;
+                width: 32px;
+            }
+            
+            .menu-links {                
+                font: 400 18px 'Overpass';
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 32px;
+
+                a {
+                    position: relative;
+                    color: $black-5;        
+                    text-decoration: none;
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        left: 0; top: 120%;
+                        width: 100%;
+                        transform: scaleX(0);
+                        transform-origin: center;
+                        height: 3px;
+                        background-color: $secondary;
+                        transition: 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: scaleX(1);                        
+                    }
+                }
+            }
+        }
+
+        .social-links {
+            display: flex;
+            gap: 32px;
+        }
+
+        .copyright {
+            text-align: center;
+            font: 400 13px 'Overpass';
+        }
+    }
+}

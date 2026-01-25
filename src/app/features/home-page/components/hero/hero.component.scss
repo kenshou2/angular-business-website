@@ -1,0 +1,110 @@
+@use '../../../../../styles/variables' as *;
+
+.container {
+    width: 100%;
+    height: calc(100vh - $nav-height);
+    background-color: #060709;
+    padding: 41px 82px;
+    display: flex;
+    overflow: hidden;
+
+    .hero-message {
+        padding: 64px 64px 0 0;
+        flex: 1 1 auto;
+        height: 100%;
+        display: flex;
+        gap: 32px;
+        flex-direction: column;
+        max-width: 100%;
+
+        h1 {
+            color: $tertiary;
+        }
+
+        p {
+            color: $black-25;
+            font-size: 0.8rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 24px;
+
+            a {
+                color: #171717;
+            }
+        }
+    }
+
+    .bg-image {
+        flex: 1 0 auto;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .container {
+        position: relative;   
+
+        .hero-message {
+            justify-content: center;
+            align-items: center;
+            padding: 0;
+            text-align: center;
+            z-index: 1;
+            gap: 32px;
+
+            h1 {
+                font-size: $h4;
+            }
+
+            p {
+                font-size: 0.8rem;
+            }
+        }
+
+        .bg-image {
+            position: absolute;
+            top: 0; left: 0; bottom: 0; right: 0;    
+            z-index: 0;        
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .container {
+        padding: 32px;
+
+        .hero-message {
+            h1 {
+                font-size: $h4;
+            }
+
+            p {
+                display: none;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-sm) {
+    .container {        
+        .hero-message {
+            justify-content: space-between;
+
+            h1 {
+                font-size: $h5;
+            }
+
+            .cta-buttons {
+                transform: scale(0.8, 0.8);
+                margin-bottom: 20%;
+            }
+        }
+    }
+}

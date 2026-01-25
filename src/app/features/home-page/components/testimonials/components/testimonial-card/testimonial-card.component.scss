@@ -1,0 +1,62 @@
+@use '../../../../../../../styles/variables' as *;
+
+.container {    
+    display: flex; 
+    flex-direction: column;
+    gap: 24px;
+    width: 100%;
+    height: calc(20vw + 100px);
+    background-color: #060709;
+    box-shadow: 0 0 18px -2px #F0CB6E;
+    border-radius: 30px;
+    padding: 32px 16px;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    &::-webkit-scrollbar {
+        width: none;
+    }
+
+    .reviewer-data {
+        display: flex;
+        gap: 12px;
+
+        .info {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 8px;                        
+
+            .name {
+                color: $black-15;
+                font-size: clamp(0.6rem, 2.5vw, $h6);
+            }
+
+            .occupation {                
+                color: $black-50;
+                font-size: 13px;
+            }
+
+            .rating {
+                display: flex;
+                gap: 8px;
+
+                .star {
+                    width: clamp(15px, 1.5vw, 22px);
+                }
+            }
+        }
+
+        .pfp {
+            width: clamp(50px, 10vw, 80px);
+            height: clamp(50px, 10vw, 80px);
+            border-radius: 50%;
+            object-fit: cover;
+            object-position: center;            
+        }
+    }
+
+    .testimonial-text {
+        color: $black-50;
+        font-size: clamp(0.6rem, 2.5vw, 0.8rem)
+    }
+}

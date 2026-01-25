@@ -1,0 +1,163 @@
+@use '../../../../../styles/variables' as *;
+
+.container {
+    padding: 32px 0;
+    position: relative;
+    overflow: hidden;
+    z-index: 0;
+    display: flex;
+    justify-content: center;
+    background-color: #060709;
+
+    .bg-image {
+        min-width: 100%;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: -1;      
+    }
+
+    .bg-image-mobile {
+        display: none;
+    }
+
+    h1 {
+        color: $black-75;
+        font-size: clamp($h4, 6vw, $h1);
+        text-align: center;
+    }
+
+    .services-container {
+        width: 70%;
+        display: flex;
+        flex-direction: column;
+        gap: 32px;
+
+        .services {
+            display: flex;    
+            gap: 32px;
+
+            .service {
+                position: relative;
+                z-index: 1;
+                display: flex;
+                align-items: center;
+                flex: 1;
+                height: clamp(250px, 30vw, 500px);
+                transition: flex-grow 0.6s ease;
+                text-decoration: none;
+
+                .service-bg-image {
+                    position: absolute;
+                    top: 0; left: 0;
+                    width: 100%;
+                    height: 100%;
+                    object-fit: cover;
+                    filter: saturate(10%);
+                    z-index: -1;
+                    border-radius: 24px;
+                    transition: filter 3s ease;
+                }
+
+                .service-info {
+                    padding-block: 16px;                    
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    gap: 16px;
+                    width: 100%;
+                    min-height: 33%;
+                    background-color: rgba(15, 15, 15, 0.4);
+                    backdrop-filter: blur(5px);
+                    position: relative;                    
+
+                    & > * {
+                        margin-inline: 24px;
+                    }
+
+                    .name {
+                        text-align: center;
+                        color: $secondary;
+                        font-size: clamp(0.8rem, 2.5vw, $h4);
+                    }
+
+                    .description {
+                        color: $black-15;
+                        position: absolute;
+                        pointer-events: none;
+                        visibility: hidden;
+                        transition: opacity 0.3s ease;
+                        opacity: 0;                        
+                    }
+                }                
+            }
+        }
+    }
+}
+
+@media (min-width: ($screen-lg + 1px)) {
+    .container {
+
+        .services-container {
+
+            .services {
+
+                .service {
+                    overflow: scroll;
+                    scrollbar-width: none;
+                    &::-webkit-scrollbar {
+                        width: 0;
+                    }
+
+                    &:hover {          
+                        flex-grow: 3;
+    
+                        .service-bg-image {
+                            filter: saturate(100%);
+                        }
+                        
+                        .service-info {
+    
+                            .description {
+                                position: relative;
+                                pointer-events: auto;
+                                visibility: visible;
+                                opacity: 1;
+                                transition-delay: 0.3s;
+                            }
+                        }
+                    }   
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .container {
+
+        .services-container {
+            width: 80%;
+
+            .services {
+                flex-direction: column;                
+
+                .service {
+                    min-height: 50vw;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .container {
+
+        .bg-image-mobile {
+            display: inline-block;
+        }
+        .bg-image-desktop {
+            display: none;
+        }
+    }
+}

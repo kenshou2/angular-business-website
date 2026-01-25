@@ -1,0 +1,27 @@
+@use 'variables' as *;
+@use  'mixins' as *;
+@use  'typography' as *;
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: $black-5;
+    position: relative;    
+    padding-top: $nav-height;
+    padding-bottom: $footer-height;
+    min-height: 100vh;
+}
+
+*, *::after, *::before {
+    box-sizing: border-box;
+}
+
+ul, li {
+    margin: 0;
+    padding: 0;
+}
+
+button {
+    border: none;
+    padding: 0;
+}

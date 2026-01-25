@@ -1,0 +1,66 @@
+@use '../../../../../styles/variables' as *;
+
+.container {    
+    position: relative;
+    padding: 64px 20%;
+    overflow: hidden;
+    margin-top: -1px;
+
+    .bg-image {
+        min-width: 100%;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 0;
+    }
+
+    .bg-image-mobile {
+        display: none;
+    }
+
+    .hero-mirror-message {
+        margin-top: 250px;
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 48px;
+
+        h1 {
+            text-align: center;
+            color: $black-75;
+            font-size: clamp(0.9rem, 10vw, $h1);
+        }
+
+        p {
+            color: $black-50;
+            font-size: clamp(0.7rem, 7.5vw, $paragraph);
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 32px;
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .container {
+        padding: 32px;
+
+        .bg-image-mobile {
+            display: inline-block;
+        }
+        .bg-image-desktop {
+            display: none;
+        }
+
+        .hero-mirror-message {
+            margin-top: 200px;
+
+            .cta-buttons {
+                transform: scale(0.8);
+            }
+        }
+    }
+}

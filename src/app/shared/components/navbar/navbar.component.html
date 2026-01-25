@@ -1,0 +1,40 @@
+<nav class="container">
+    <ul class="menu">
+        @if (isMobile) {
+            <li class="menu-item logo">
+                <a routerLink="/home"><img src="images/logo.svg" alt="A logotype representing half a moon"></a>            
+            </li>
+            <li class="menu-item">
+                <button type="button" (click)="toggleSidebar()" class="open-menu-btn"><img src="icons/menu-button.svg" alt="an icon of a menu button"></button>
+            </li>
+            <div class="side-bar" [class.emerge]="openSideBar">
+                <li class="menu-item">
+                    <ul class="menu-links">
+                        <li><a (click)="toggleSidebar()" routerLink="/home">Home</a></li>
+                        <li><a (click)="toggleSidebar()" routerLink="/contacts">Contacts</a></li>
+                        <li><a (click)="toggleSidebar()" routerLink="/services">Services</a></li>
+                    </ul>
+                </li>
+                <li class="menu-item social-links">
+                    <a><img src="icons/instagram.svg" alt="Instagram logotype"></a>
+                    <a><img src="icons/facebook.svg" alt="Facebook logotype"></a>
+                </li>
+            </div>       
+        } @else {
+            <li class="menu-item logo">
+                <a routerLink="/home"><img src="images/logo.svg" alt="A logotype representing half a moon"></a>                
+            </li>
+            <li class="menu-item">
+                <ul class="menu-links">
+                    <li><a routerLink="/home">Home</a></li>             
+                    <li><a routerLink="/contacts">Contacts</a></li>
+                    <li><a routerLink="/services">Services</a></li>
+                </ul>
+            </li>
+            <li class="menu-item social-links">
+                <a><img src="icons/instagram.svg" alt="Instagram logotype"></a>
+                <a><img src="icons/facebook.svg" alt="Facebook logotype"></a>
+            </li>
+        }
+    </ul>
+</nav>

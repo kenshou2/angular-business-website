@@ -1,0 +1,97 @@
+@use '../../../../../styles/variables' as *;
+
+.container {    
+    position: relative;
+    padding: 64px 160px;
+    overflow: hidden;
+
+    .bg-image {
+        min-width: 100%;
+        position: absolute;
+        top: 0; left: 0; right: 0; bottom: 0;
+        z-index: 0;
+    }
+
+    .bg-image-mobile {
+        display: none;
+    }
+
+    .about-texts {
+        display: flex;
+        flex-direction: column;
+        gap: 256px;
+
+        .text {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+            text-align: center;
+            flex: 1;
+            z-index: 1;
+
+            h3 {
+                font-size: $h3;
+            }
+
+            &:nth-child(1) {
+                color: $black-15;
+            }
+            &:nth-child(3n + 1) {
+                color: $black-50;
+                padding-right: 30%;
+            }
+
+            &:nth-child(2n) {
+                color: $black-75;
+                padding-left: 30%;
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-lg) {
+    .container {
+
+        .about-texts {
+            .text { 
+
+                h3 {
+                    font-size: $h5;
+                }
+                &:nth-child(1n) {                
+                    padding: 0;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .container {
+        padding: 32px;
+
+        .bg-image-mobile {
+            display: inline-block;
+        }
+        .bg-image-desktop {
+            display: none;
+        }
+        
+        .about-texts {
+            .text { 
+
+                h3 {
+                    font-size: $h6;
+                }
+                
+                p {
+                    font-size: 0.8rem;
+                }
+
+                &:nth-child(1n) {                
+                    padding: 0;
+                }
+            }
+        }
+    }
+}

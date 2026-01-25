@@ -1,0 +1,74 @@
+@use 'variables' as *;
+
+@font-face {
+    font-family: 'Overpass';
+    src: url('@assets/fonts/Overpass/Overpass.woff2') format('woff2'),
+         url('@assets/fonts/Overpass/Overpass.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inter';
+    src: url('@assets/fonts/Inter/Inter.woff2') format('woff2'),
+         url('@assets/fonts/Inter/Inter.woff') format('woff');
+    font-weight: 500;
+    font-display: swap;
+}
+
+:root {
+    font-size: $paragraph;
+}
+
+body {
+    font-family: 'Inter';
+    color: $black;
+}
+
+a {    
+    color: $link-color;
+
+    &:hover {
+        color: $secondary;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Overpass';
+    margin: 0;
+    font-weight: 500;
+}
+
+h1 {
+    font-size: $h1;
+}
+
+h2 {
+    font-size: $h2;
+}
+
+h3 {
+    font-size: $h3;
+}
+
+h4 {
+    font-size: $h4;
+}
+
+h5 {
+    font-size: $h5;
+}
+
+h6 {
+    font-size: $h6;
+}
+
+p {
+    margin: 0;
+    font-weight: 500;
+}
+
+button {
+    font-family: 'Overpass';
+    font-size: $h6;
+}

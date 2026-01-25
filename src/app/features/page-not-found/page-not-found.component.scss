@@ -1,0 +1,24 @@
+@use '../../../styles/variables' as *;
+
+.container {
+    padding-inline: 30%;
+    min-height: calc(100vh - $nav-height);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .message {
+        display: flex;
+        flex-direction: column;        
+        align-items: center;
+        gap: 64px;
+
+        .error {
+            color: $black-75;
+        }
+
+        .suggestion {
+            color: $black-50;
+        }
+    }
+}

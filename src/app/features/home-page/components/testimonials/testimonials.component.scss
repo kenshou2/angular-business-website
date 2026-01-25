@@ -1,0 +1,115 @@
+@use '../../../../../styles/variables' as *;
+
+.container {
+    display: flex;
+    align-items: center;    
+    justify-content: center;
+    background-color: #060709;
+    padding-block: 5%;
+
+    .testimonials-container {
+        display: flex;
+        flex-direction: column;
+        gap: 64px;
+        width: 88%;
+
+        .heading {
+            color: $tertiary;
+            font-size: clamp($h6, 10vw, $h1);
+        }
+
+        .testimonials-controls {
+            display: flex;
+            align-items: center;            
+
+            & > * {
+                flex: 1 1 auto;
+            }
+
+            .control-btn {
+                background-color: transparent;
+                cursor: pointer; 
+                
+                .arrow {
+                    vertical-align: middle;
+                    width: clamp(15px, 3vw, 35px);
+                }
+
+                .previous {
+                    transform: rotate(180deg);
+                }
+            }
+
+            .testimonials {
+                display: flex;
+                margin-inline: 2%;
+                overflow: hidden;
+
+                & > * {
+                    flex: 0 0 calc(33.33%);
+                    padding: 18px 18px 18px 32px;
+                    transform: translateX(-300%);
+                    transition: 0.4s ease;
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: $screen-lg) {
+    .container {
+
+        .testimonials-container {
+
+            .testimonials-controls {
+
+                .testimonials {
+                    
+                    & > * {
+                        flex-basis: 50%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 992px) {
+    .container {
+
+        .testimonials-container {
+            width: 80%;
+            justify-content: center;
+
+            .testimonials-controls {
+
+                .testimonials {
+                    
+                    & > * {
+                        flex-basis: 100%;
+                        padding-inline: 15%;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: $screen-md) {
+    .container {
+
+        .testimonials-container {
+
+            .testimonials-controls { 
+
+                .testimonials {
+                    
+                    & > * {
+                        padding-inline: 18px;
+                    }
+                }
+            }
+        }
+    }
+}

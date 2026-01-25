@@ -1,0 +1,66 @@
+@use '../../../../../styles/variables' as *;
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 5% 15%;
+    background-color: #060709;
+    color: $tertiary;
+
+    .faq-container {
+        display: flex;
+        flex-direction: column;
+        gap: 48px;
+
+        h2 {
+            font-size: clamp(0.9rem, 5vw, $h2);
+            text-align: center;
+        }
+        
+        .faq-list {
+            display: flex;
+            flex-direction: column;            
+            border-top: 2px solid $tertiary;
+
+            .faq {
+                padding: clamp(8px, 1.6vw, 16px) clamp(12px, 2.4vw, 24px);
+                cursor: pointer;
+                border-bottom: 2px solid $tertiary;
+
+                .question-container {
+                    display: flex;
+                    justify-content: space-between;
+                    user-select: none;
+                    align-items: center;
+
+                    h4 {
+                        font-size: clamp(0.8rem, 3vw, $h4);
+                    }
+                    
+                    .arrow {
+                        transform: rotate(90deg);
+                        width: clamp(12px, 2vw, 20px);
+                    }
+                }
+
+                .expandable {
+                    display: grid;
+                    grid-template-rows: 0fr;
+                    transition: grid-template-rows 0.3s ease;
+                    font-size: clamp(0.7rem, 2vw, $paragraph);
+                    color: $black-50;
+
+                    .answer {
+                        overflow: hidden;                        
+                    }
+                }
+
+                .expanded {
+                    grid-template-rows: 1fr;
+                    padding-bottom: 16px;
+                }
+            }
+        }
+    }
+}

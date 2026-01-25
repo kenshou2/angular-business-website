@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="services">
+        @for (service of services; track $index) {
+            <div class="service">
+                <div class="name">
+                    <h5 class="service-name">{{service.name}}</h5>
+                    <span class="price">{{service.price}} USD</span>
+                </div>
+                <div class="description">
+                    <p class="service-description">{{service.description}}</p>
+                    @if (service.includesList && service.includesList.length > 0) {
+                        <ul>
+                            @for (serviceOffer of service.includesList; track $index) {
+                                <li class="service-option">{{serviceOffer}}</li>
+                            }
+                        </ul>
+                    }
+                    <a><button class="register">Apply</button></a>
+                </div>
+            </div>
+        }
+    </div>
+</div>

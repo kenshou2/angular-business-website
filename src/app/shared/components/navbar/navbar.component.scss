@@ -1,0 +1,137 @@
+@use '../../../../styles/variables' as *;
+
+.container {
+    padding: 16px 32px;
+    background-color: $primary;
+    height: $nav-height;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+
+    .menu {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .menu-item, .menu-links {
+            list-style-type: none;                        
+        }
+
+        .logo {
+            position: relative;
+
+            img {
+                width: 48px;
+            }
+        }
+
+        .menu-item {
+
+            img {
+                vertical-align: middle;
+            }
+
+            .open-menu-btn {
+                background-color: transparent;
+                border: none;
+                padding: 0;
+                color: $tertiary;
+                cursor: pointer;
+                font-size: 25px;
+            }
+            
+            .menu-links {                
+                font-family: 'Overpass';
+                line-height: 64px;
+                display: flex;
+                flex-direction: column;
+
+                a {
+                    position: relative;
+                    color: $black-5;        
+                    text-decoration: none;
+
+                    &::after {
+                        position: absolute;
+                        content: '';
+                        left: 0; top: 120%;
+                        width: 100%;
+                        transform: scaleX(0);
+                        transform-origin: center;
+                        height: 3px;
+                        background-color: $secondary;
+                        transition: 0.3s ease;
+                    }
+
+                    &:hover::after {
+                        transform: scaleX(1);                        
+                    }
+                }
+            }
+            @media (min-width: 768px) {
+                .menu-links {
+                    flex-direction: row;
+                    gap: 32px;
+                    font-size: 18px;
+                    font-weight: 400;
+
+                    li {
+                        line-height: normal;
+                    }
+                }
+            }
+        }
+
+        .social-links {
+            margin: 32px 0;
+            display: flex;
+            gap: 32px;
+
+            img {
+                width: 48px;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .social-links {
+                margin: 0;
+                gap: 16px;
+                
+                img {
+                    width: 32px;
+                }
+            }
+        }
+
+        .side-bar {
+            padding: 16px 32px;
+            position: absolute;
+            top: $nav-height; right: 0;
+            transition: 0.3s ease;
+            width: 100%;
+            opacity: 0;
+            visibility: hidden;
+            pointer-events: none;
+            overflow: auto;
+            scrollbar-width: none;            
+            background-color: $primary;
+            height: calc(100vh - $nav-height);   
+
+            &::-webkit-scrollbar {
+                display: none;
+            }
+
+            .menu-links {
+                a::after {
+                    display: none;
+                }
+            }
+        }
+
+        .side-bar.emerge {
+            visibility: visible;
+            opacity: 1;
+            pointer-events: auto;
+        }
+    }
+}

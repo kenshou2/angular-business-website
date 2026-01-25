@@ -1,0 +1,1 @@
+This is a portfolio project that uses Angular with Typescript and SCSS. It is a three-page, fully-responsive, component-based single page application.

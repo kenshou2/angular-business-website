@@ -1,0 +1,17 @@
+@keyframes iridescent {
+    from { background-position: left; }
+    to { background-position: right; }
+}
+
+* {
+    color: #171717;
+}
+
+button {
+    cursor: pointer;
+}
+
+.iridescent {
+    background-size: 500%;
+    animation: iridescent 3s infinite alternate linear;
+}

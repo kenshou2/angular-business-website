@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="testimonials-container">
+        <h1 class="heading">Here's what people have to say about us</h1>
+        <div class="testimonials-controls">
+            @if (showControls) {
+                <button (click)="moveLeft()" class="control-btn" type="button"><svg class="arrow previous" width="35" height="64" viewBox="0 0 35 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.6986 34.8248C25.261 33.2627 25.2611 30.7298 23.6989 29.1676L1.48107 6.94977C0.114232 5.58293 0.114232 3.36686 1.48107 2.00002V2.00002C2.8479 0.633185 5.06398 0.633184 6.43081 2.00002L33.5989 29.1681C35.1612 30.7304 35.161 33.2633 33.5986 34.8253L6.42436 61.9937C5.05737 63.3604 2.8413 63.3602 1.47461 61.9932V61.9932C0.10792 60.6262 0.108157 58.4101 1.47514 57.0435L23.6986 34.8248Z" fill="#E0D6BF"/></svg></button>
+            }
+            <div class="testimonials">
+                @for(testimonial of testimonialsData; track testimonial.id) {
+                    <app-testimonial-card [ngStyle]="{'transform': 'translateX('+ leftShift +'%)'}" [testimonialData]="testimonial"></app-testimonial-card>
+                }
+            </div>
+            @if (showControls) {
+                <button (click)="moveRight()" class="control-btn" type="button"><svg class="arrow next" width="35" height="64" viewBox="0 0 35 64" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M23.6986 34.8248C25.261 33.2627 25.2611 30.7298 23.6989 29.1676L1.48107 6.94977C0.114232 5.58293 0.114232 3.36686 1.48107 2.00002V2.00002C2.8479 0.633185 5.06398 0.633184 6.43081 2.00002L33.5989 29.1681C35.1612 30.7304 35.161 33.2633 33.5986 34.8253L6.42436 61.9937C5.05737 63.3604 2.8413 63.3602 1.47461 61.9932V61.9932C0.10792 60.6262 0.108157 58.4101 1.47514 57.0435L23.6986 34.8248Z" fill="#E0D6BF"/></svg></button>
+            }
+        </div>
+    </div>
+</div>
